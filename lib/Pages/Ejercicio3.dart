@@ -197,6 +197,7 @@ class _EcuacionSegundoGradoState extends State<EcuacionSegundoGrado> {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -218,6 +219,7 @@ class _EcuacionSegundoGradoState extends State<EcuacionSegundoGrado> {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                     ),
                   ),

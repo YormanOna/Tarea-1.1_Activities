@@ -222,6 +222,7 @@ class _TrianguloCalculatorState extends State<TrianguloCalculator> {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -243,6 +244,7 @@ class _TrianguloCalculatorState extends State<TrianguloCalculator> {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
+                        color: Colors.white,
                       ),
                     ),
                   ),

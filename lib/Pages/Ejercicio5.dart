@@ -116,7 +116,11 @@ class _ReajusteDeSueldoState extends State<ReajusteDeSueldo> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: _calcularReajuste,
-                    child: Text('Calcular Reajuste'),
+                    child: Text('Calcular Reajuste',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF7077A1),
                     ),
@@ -126,7 +130,8 @@ class _ReajusteDeSueldoState extends State<ReajusteDeSueldo> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: _limpiarCampos,
-                    child: Text('Limpiar'),
+                    child: Text('Limpiar',
+                      style: TextStyle(color: Colors.white),),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.redAccent,
                     ),

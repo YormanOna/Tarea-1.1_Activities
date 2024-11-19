@@ -148,6 +148,7 @@ class CalculadorSueldoState extends State<CalculadorSueldo> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -170,6 +171,7 @@ class CalculadorSueldoState extends State<CalculadorSueldo> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
+                          color: Colors.white,
                         ),
                       ),
                     ),
