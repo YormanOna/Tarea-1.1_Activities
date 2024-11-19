@@ -12,6 +12,19 @@ class _TrianguloCalculatorState extends State<TrianguloCalculator> {
   String _resultado = "";
   String _mensajeError = "";
   String _tipoTriangulo = "";
+  String _imagenTriangulo = "";
+
+  // Función para obtener la imagen según el tipo de triángulo
+  String _obtenerImagenTriangulo() {
+    if (_tipoTriangulo.contains('Equilátero')) {
+      return 'lib/img/triangulo_equilatero.png';
+    } else if (_tipoTriangulo.contains('Isósceles')) {
+      return 'lib/img/triangulo_isosceles.png';
+    } else if (_tipoTriangulo.contains('Escaleno')) {
+      return 'lib/img/triangulo_escaleno.png';
+    }
+    return '';
+  }
 
   void _limpiarCampos() {
     setState(() {
@@ -21,6 +34,7 @@ class _TrianguloCalculatorState extends State<TrianguloCalculator> {
       _resultado = "";
       _mensajeError = "";
       _tipoTriangulo = "";
+      _imagenTriangulo = "";
     });
   }
 
@@ -29,6 +43,7 @@ class _TrianguloCalculatorState extends State<TrianguloCalculator> {
       _mensajeError = "";
       _resultado = "";
       _tipoTriangulo = "";
+      _imagenTriangulo = "";
 
       // Validar campos vacíos
       if (_lado1Controller.text.isEmpty ||
@@ -58,7 +73,6 @@ class _TrianguloCalculatorState extends State<TrianguloCalculator> {
       if ((lado1 + lado2 > lado3) &&
           (lado1 + lado3 > lado2) &&
           (lado2 + lado3 > lado1)) {
-
         _resultado = "¡Se puede formar un triángulo!";
 
         // Determinar tipo de triángulo
@@ -69,6 +83,9 @@ class _TrianguloCalculatorState extends State<TrianguloCalculator> {
         } else {
           _tipoTriangulo = "Triángulo Escaleno\n(Todos sus lados son diferentes)";
         }
+
+        // Asignar la imagen correspondiente
+        _imagenTriangulo = _obtenerImagenTriangulo();
       } else {
         _mensajeError = "No se puede formar un triángulo con estas medidas\n" +
             "La suma de dos lados debe ser mayor al tercero";
@@ -281,13 +298,26 @@ class _TrianguloCalculatorState extends State<TrianguloCalculator> {
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(color: Color(0xFF4CAF50)),
                       ),
-                      child: Text(
-                        _tipoTriangulo,
-                        style: TextStyle(
-                          color: Color(0xFF2E7D32),
-                          fontSize: 16,
-                        ),
-                        textAlign: TextAlign.center,
+                      child: Column(
+                        children: [
+                          Text(
+                            _tipoTriangulo,
+                            style: TextStyle(
+                              color: Color(0xFF2E7D32),
+                              fontSize: 16,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          if (_imagenTriangulo.isNotEmpty)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 16.0),
+                              child: Image.asset(
+                                _imagenTriangulo,
+                                height: 150,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                        ],
                       ),
                     ),
                   ],
